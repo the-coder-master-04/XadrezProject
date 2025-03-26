@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Tabuleiro;
+
+
+Posicao P;
+
+P = new Posicao(3, 4);
+
+Console.WriteLine($"Posicão: {P}");
