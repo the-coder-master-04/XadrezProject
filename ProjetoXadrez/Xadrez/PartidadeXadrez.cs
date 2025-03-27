@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tabuleiro;
+﻿using tabuleiro;
 
 namespace Xadrez
 {
     class PartidadeXadrez
     {
-        public tabuleiro tab { get; private set; }
+        public Tabuleiro tab { get; private set; }
         private int turno;
         private Cor JogadorAtual;
         public bool Terminada { get; private set; }
 
         public PartidadeXadrez()
         {
-            tab = new tabuleiro(8, 8);
+            tab = new Tabuleiro(8, 8);
             turno = 1;
             JogadorAtual = Cor.Branco;
-            ColocarPecas();
             Terminada = false;
+            ColocarPecas();
         }
         public void ExecutaMovimento(Posicao origem, Posicao destino)
         {

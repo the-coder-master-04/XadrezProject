@@ -1,4 +1,4 @@
-﻿namespace Tabuleiro
+﻿namespace tabuleiro
 {
     internal class Posicao
     {
@@ -6,6 +6,12 @@
         public int Coluna { get; set;}
 
         public Posicao(int linha, int coluna)
+        {
+            Linha = linha;
+            Coluna = coluna;
+        }
+
+        public void DefinirValores(int linha, int coluna)
         {
             Linha = linha;
             Coluna = coluna;

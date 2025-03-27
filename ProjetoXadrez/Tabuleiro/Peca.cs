@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tabuleiro;
+﻿
 
 
-namespace Tabuleiro
+namespace tabuleiro
 {
-    internal class Peca
+    abstract class Peca
     {
-        public Posicao Posicao{ get; set; }
+        public Posicao posicao{ get; set; }
         public Cor Cor { get; set; }
-        public int QteDMovimentos { get; protected set; }
-        public tabuleiro Tab { get; protected set; }
+        public int qteDMovimentos { get; protected set; }
+        public Tabuleiro tab { get; protected set; }
 
-        public Peca(tabuleiro tab, Cor cor)
+        public Peca(Tabuleiro tab, Cor cor)
         {
-            Posicao = null;
-            Tab = tab;
+            
+            this.tab = tab;
             Cor = cor;
-            QteDMovimentos = 0;
+            qteDMovimentos = 0;
         }
         public void IncrementarMovimentos()
         {
-            QteDMovimentos++;
+            qteDMovimentos++;
         }
 
+        public abstract bool[,] movimentosPosssiveis();
     }
 }

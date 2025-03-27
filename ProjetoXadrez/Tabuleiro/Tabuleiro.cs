@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetoXadrez.Tabuleiro;
-using Tabuleiro;
+﻿using Xadrez;
 
-namespace Tabuleiro
+
+namespace tabuleiro
 {
-    internal class tabuleiro
+     class Tabuleiro
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
         private Peca[,] pecas;
 
-        public tabuleiro (int linhas, int colunas)
+        public Tabuleiro (int linhas, int colunas)
         {
             Linhas = linhas;
             Colunas = colunas;
@@ -37,19 +32,12 @@ namespace Tabuleiro
         public void ColocarPeca(Peca p, Posicao pos)
         {
             {
-                try
-                {
-                    if (ExistePeca(pos)) { throw new TabuleiroException("Já tem peça ai"); }
+                if (ExistePeca(pos)) { throw new TabuleiroException("Já tem peça ai"); }
 
-                    pecas[pos.Linha, pos.Coluna] = p;
-                    p.Posicao = pos;
-                }
-                catch (TabuleiroException e)
-                {
-                    Console.WriteLine($"{e.Message}");
-                    Environment.Exit(1);
-                }
-            }
+                pecas[pos.Linha, pos.Coluna] = p;
+                p.posicao = pos;
+
+            }    
         }
         public bool posicaoValida(Posicao pos)
         {
@@ -61,22 +49,19 @@ namespace Tabuleiro
         }
         public void ValidarPosicao(Posicao pos)
         {
-            try
-            {
+           
                 if (!posicaoValida(pos))
                 {
                     throw new TabuleiroException("Posição inválida");
                 }
-            }
-            catch (IOException e) { Console.WriteLine($"{e.Message}");
-                Environment.Exit(1);
-            }
+            
+            
         }
         public Peca RetirarPeca(Posicao pos)
         {
             if (peca(pos) == null) { return null; }
             Peca aux = peca(pos);
-            aux.Posicao = null;
+            aux.posicao = null;
             pecas[pos.Linha, pos.Coluna] = null;
             return aux;
         }
