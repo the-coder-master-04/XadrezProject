@@ -2,10 +2,17 @@
 using Tabuleiro;
 using Xadrez;
 
+try
+{
+    tabuleiro tab = new tabuleiro(8, 8);
 
-    PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+    tab.ColocarPeca(new Torre(tab, Cor.Preto), new Posicao(0,0));
+    tab.ColocarPeca(new Rei(tab, Cor.Branco), new Posicao(2,2));
+    tab.ColocarPeca(new Torre(tab, Cor.Preto), new Posicao(1,7));
 
-    Console.WriteLine(pos);
-Console.WriteLine(pos.toPosicao());
-
-    Console.ReadLine();
+    Tela.ImprimirTabuleiro(tab);
+}
+catch (IOException e)
+{
+    Console.WriteLine(e.Message);
+}
