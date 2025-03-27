@@ -1,8 +1,9 @@
-﻿using Tabuleiro;
+﻿using ProjetoXadrez;
+using Tabuleiro;
 
 
-Posicao P;
+tabuleiro tab = new tabuleiro(8, 8);
 
-P = new Posicao(3, 4);
 
-Console.WriteLine($"Posicão: {P}");
+
+Tela.ImprimirTabuleiro(tab);
