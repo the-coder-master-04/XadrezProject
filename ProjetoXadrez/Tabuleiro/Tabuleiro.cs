@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjetoXadrez.Tabuleiro;
+using Tabuleiro;
 
 namespace Tabuleiro
 {
@@ -24,5 +24,10 @@ namespace Tabuleiro
             return pecas[linhas, colunas];
         }
 
+        public void ColocarPeca(Peca p, Posicao pos)
+        {
+            pecas[pos.Linha, pos.Coluna] = p;
+            p.Posicao = pos;
+        }
     }
 }

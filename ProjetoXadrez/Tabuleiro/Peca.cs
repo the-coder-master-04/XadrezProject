@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Tabuleiro;
 
 
-namespace ProjetoXadrez.Tabuleiro
+namespace Tabuleiro
 {
     internal class Peca
     {
@@ -15,9 +15,9 @@ namespace ProjetoXadrez.Tabuleiro
         public int QteDMovimentos { get; protected set; }
         public tabuleiro Tab { get; protected set; }
 
-        public Peca(Posicao posicao, tabuleiro tab, Cor cor)
+        public Peca(tabuleiro tab, Cor cor)
         {
-            Posicao = posicao;
+            Posicao = null;
             Tab = tab;
             Cor = cor;
             QteDMovimentos = 0;
