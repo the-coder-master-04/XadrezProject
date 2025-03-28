@@ -50,7 +50,7 @@ namespace Xadrez
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // Para Noroeste
-            pos.DefinirValores(posicao.Linha - 1, posicao.Coluna - 1);
+            pos.DefinirValores(posicao.Linha - 1, posicao.Coluna + 1);
             if (tab.posicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
@@ -66,7 +66,7 @@ namespace Xadrez
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }// Pra Nordeste
-            pos.DefinirValores(posicao.Linha + 1, posicao.Coluna - 1);
+            pos.DefinirValores(posicao.Linha - 1, posicao.Coluna - 1);
             if (tab.posicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;

@@ -6,6 +6,24 @@ namespace ProjetoXadrez
 {
     class Tela
     {
+        public static void ImprimirTabuleiro(Tabuleiro tab)
+        {
+           
+            for (int i = 0; i < tab.Linhas; i++)
+            {
+                Console.Write($"{8 - i} ");
+                for (int j = 0; j < tab.Colunas; j++)
+                {
+                    
+                    ImprimirPeca(tab.peca(i, j));
+                    
+                }
+                Console.WriteLine();
+
+            }
+            Console.WriteLine("  a b c d e f g h");
+           
+        }
         public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
@@ -22,7 +40,7 @@ namespace ProjetoXadrez
                     }
                     else { Console.BackgroundColor = fundoOriginal;}
                     ImprimirPeca(tab.peca(i,j));
-                    
+                    Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine();
 

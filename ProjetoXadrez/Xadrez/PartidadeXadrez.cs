@@ -26,16 +26,20 @@ namespace Xadrez
         }
         private void ColocarPecas()
         {
-            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('a', 1).toPosicao());
-            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('b', 1).toPosicao()); 
-            tab.ColocarPeca(new Rei  (tab, Cor.Preto), new PosicaoXadrez('d', 2).toPosicao());
-            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('e', 2).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('c', 8).toPosicao());
+            tab.ColocarPeca(new Rei  (tab, Cor.Preto), new PosicaoXadrez('d', 8).toPosicao()); 
+            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('e', 8).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('c', 7).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('d', 7).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Preto), new PosicaoXadrez('e', 7).toPosicao());
     
 
-            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('a', 8).toPosicao());
-            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('b', 8).toPosicao());
-            tab.ColocarPeca(new Rei  (tab, Cor.Branco), new PosicaoXadrez('d', 7).toPosicao());
-            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('e', 7).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('c', 1).toPosicao());
+            tab.ColocarPeca(new Rei  (tab, Cor.Branco), new PosicaoXadrez('d', 1).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('e', 1).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('c', 2).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('d', 2).toPosicao());
+            tab.ColocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('e', 2).toPosicao());
         }
     }
 }
