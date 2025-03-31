@@ -16,7 +16,20 @@ namespace ProjetoXadrez
             ImprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine($"Turno {partida.turno}");
-            Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
+            if (!partida.Terminada)
+            {
+                Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
+
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual); 
+            }
         }
 
         public static void ImprimirPecasCapturadas(PartidadeXadrez partidade)
@@ -35,10 +48,10 @@ namespace ProjetoXadrez
 
         public static void ImprimirConjunto(HashSet<Peca> conjunto)
         {
-            Console.Write("[");
+            Console.Write("[ ");
             foreach (Peca p in conjunto)
             {
-                Console.Write($" {p} ");
+                Console.Write($"{p} ");
             }
             Console.Write("]");
         }
