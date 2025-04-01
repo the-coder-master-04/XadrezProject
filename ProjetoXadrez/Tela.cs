@@ -38,11 +38,11 @@ namespace ProjetoXadrez
             Console.WriteLine();
 
             Console.Write("Brancas: ");
-            ImprimirConjunto(partidade.PecasCapturadas(Cor.Branco));
+            ImprimirConjunto(partidade.pecasCapturadas(Cor.Branco));
             
             Console.WriteLine();
             Console.Write("Pretas: ");
-            ImprimirConjunto(partidade.PecasCapturadas(Cor.Preto));
+            ImprimirConjunto(partidade.pecasCapturadas(Cor.Preto));
             Console.WriteLine();
         }
 

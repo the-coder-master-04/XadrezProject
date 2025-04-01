@@ -1,32 +1,36 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Runtime.ConstrainedExecution;
 using tabuleiro;
 
-namespace Xadrez
+namespace xadrez
 {
-    class Rainha : Peca
+
+    class Dama : Peca
     {
-        public Rainha(Tabuleiro tab, Cor cor) : base(tab, cor)
+
+        public Dama(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
-        private bool PodeMover(Posicao pos)
+
+        public override string ToString()
+        {
+            return "D";
+        }
+
+        private bool podeMover(Posicao pos)
         {
             Peca p = tab.peca(pos);
             return p == null || p.Cor != Cor;
         }
-        public override string ToString()
-        {
-            return "Q";
-        }
+
         public override bool[,] movimentosPosssiveis()
         {
-
             bool[,] mat = new bool[tab.Linhas, tab.Colunas];
 
             Posicao pos = new Posicao(0, 0);
 
+            // esquerda
             pos.DefinirValores(posicao.Linha, posicao.Coluna - 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -38,7 +42,7 @@ namespace Xadrez
 
             // direita
             pos.DefinirValores(posicao.Linha, posicao.Coluna + 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -50,7 +54,7 @@ namespace Xadrez
 
             // acima
             pos.DefinirValores(posicao.Linha - 1, posicao.Coluna);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -62,7 +66,7 @@ namespace Xadrez
 
             // abaixo
             pos.DefinirValores(posicao.Linha + 1, posicao.Coluna);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -74,7 +78,7 @@ namespace Xadrez
 
             // NO
             pos.DefinirValores(posicao.Linha - 1, posicao.Coluna - 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -86,7 +90,7 @@ namespace Xadrez
 
             // NE
             pos.DefinirValores(posicao.Linha - 1, posicao.Coluna + 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -98,7 +102,7 @@ namespace Xadrez
 
             // SE
             pos.DefinirValores(posicao.Linha + 1, posicao.Coluna + 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -110,7 +114,7 @@ namespace Xadrez
 
             // SO
             pos.DefinirValores(posicao.Linha + 1, posicao.Coluna - 1);
-            while (tab.posicaoValida(pos) && PodeMover(pos))
+            while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor)
@@ -120,9 +124,9 @@ namespace Xadrez
                 pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
             }
 
-
-
             return mat;
         }
+
+        
     }
 }

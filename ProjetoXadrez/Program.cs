@@ -15,7 +15,7 @@ try
             Console.WriteLine();
             Console.Write("Origem: ");
             Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
-            partida.ValidarPosicaoDeOrigem(origem);
+            partida.validarPosicaoDeOrigem(origem);
 
             bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPosssiveis();
 
@@ -26,9 +26,9 @@ try
             Console.WriteLine();
             Console.Write("Destino: ");
             Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-            partida.ValidarPosicaoDeDestino(origem, destino);
+            partida.validarPosicaoDeDestino(origem, destino);
 
-            partida.RealizaJogada(origem, destino);
+            partida.realizaJogada(origem, destino);
         }
         catch (TabuleiroException e)
         {
