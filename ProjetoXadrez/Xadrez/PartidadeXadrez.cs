@@ -147,7 +147,7 @@ namespace Xadrez
             // #jogadaespecial promocao
             if (p is Peao)
             {
-                if ((p.Cor == Cor.Branco && destino.Linha == 0) || (p.Cor == Cor.Preto && destino.Linha == 7))
+                if ((p.Cor == Cor.Preto && destino.Linha == 7) ||(p.Cor == Cor.Branco && destino.Linha == 0))
                 {
                     p = tab.RetirarPeca(destino);
                     pecas.Remove(p);
